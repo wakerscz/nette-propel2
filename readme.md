@@ -86,17 +86,17 @@ Propel 2 ORM integration for Nette 2.4 **with Tracy debugger panel**.
 ```
 
 ### Use commands
-Commands are same as official but with prefix **propel:** and without shortcuts.
+Commands are same as official but without aliases.
 
 ```bash
 # Compare DB with schema (eventually create migration)
-./vendor/bin/wpropel propel:migration:diff
+./vendor/bin/wpropel migration:diff
 
 # Run migration
-./vendor/bin/wpropel propel:migration:migrate
+./vendor/bin/wpropel migration:migrate
 
 # Create model classes
-./vendor/bin/wpropel propel:model:build
+./vendor/bin/wpropel model:build
 
 # Show all allowed commands
 ./vendor/bin/wpropel
@@ -139,4 +139,4 @@ Please think about using Propel 2 before you start, because actually Propel 2 is
 
 If you still want to use Propel2 in Nette, this extension is the right way.
 
-**We're welcome pull request and issues.**
+**We're welcome pull requests and issues.**

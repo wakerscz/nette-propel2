@@ -30,7 +30,6 @@ foreach ($finder as $file)
          */
 
         $command = $r->newInstance();
-        $command->setName('propel:' . $command->getName());
         $command->setAliases([]);
 
         $nativeDefinition = $command->getNativeDefinition();
