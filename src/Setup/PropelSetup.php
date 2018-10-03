@@ -23,21 +23,21 @@ use Wakers\Propel\Debugger\Logger;
 class PropelSetup
 {
     /**
-     * Cesta do rootu projektu: lze z něj vidět ./vendor, app, log, atd.
+     * Cesta ke konfiguračnímu souboru
+     * Musí být definována konstantou (nesmí se měnit)
      */
     const NEON_CONFIG_PATH = __DIR__.'/../../../../../app/config/db.local.neon';
 
 
     /**
      * Vrací nastavení Propelu ze souboru db.local.neon
-     *
      * @param string $path
      * @return array
      */
-    public static function getConfigAsPhpArray() : array
+    public static function getAsArray() : array
     {
         $configPath = realpath(self::NEON_CONFIG_PATH);
-        $config = Neon::decode(file_get_contents($configPath))['wakers-propel'];
+        $config = Neon::decode(file_get_contents('nette.safe://' . $configPath))['wakers-propel'];
         return $config;
     }
 
@@ -51,7 +51,7 @@ class PropelSetup
      */
     public static function setup(Container $container) : void
     {
-        $config = self::getConfigAsPhpArray();
+        $config = self::getAsArray();
         $configurationManager = new ConfigurationManager(NULL, $config);
 
         // Výchozí DB a její adapter
@@ -73,9 +73,7 @@ class PropelSetup
 
 
         // Nastavení debug módu
-        $debugMode = $container->parameters['debugMode'];
-
-        if ($debugMode)
+        if ($container->parameters['debugMode'])
         {
             $connection = $serviceContainer->getConnection();
             $connection->useDebug(TRUE);

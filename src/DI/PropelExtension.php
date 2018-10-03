@@ -18,7 +18,6 @@ class PropelExtension extends CompilerExtension
 {
     /**
      * Nastartuje Propel
-     *
      * @param ClassType $class
      */
     public function afterCompile(ClassType $class) : void

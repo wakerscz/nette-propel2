@@ -7,7 +7,7 @@
  */
 
 
-$composer = require __DIR__.'/../../../../vendor/autoload.php';
+require __DIR__.'/../../../../vendor/autoload.php';
 
 $app = new \Symfony\Component\Console\Application;
 
@@ -37,7 +37,7 @@ foreach ($finder as $file)
 
         if(isset($nativeDefinition->getOptions()['config-dir']))
         {
-            $nativeDefinition->getOptions()['config-dir']->setDefault(Wakers\Propel\Setup\PropelSetup::NEON_CONFIG_PATH);
+            $nativeDefinition->getOptions()['config-dir']->setDefault(__DIR__ . '/../src/config/scam.php');
         }
 
         $app->add($command);

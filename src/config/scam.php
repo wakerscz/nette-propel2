@@ -12,7 +12,7 @@
 
 if (php_sapi_name() === 'cli')
 {
-    return \Wakers\Propel\Setup\PropelSetup::getConfigAsPhpArray();
+    return \Wakers\Propel\Setup\PropelSetup::getAsArray();
 }
 
 return NULL;

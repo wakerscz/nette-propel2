@@ -90,19 +90,19 @@ Commands are same as official but with prefix **propel:** and without shortcuts.
 
 ```bash
 # Compare DB with schema (eventually create migration)
-php ./vendor/wakers/propel/bin/orm.php propel:migration:diff
+php ./vendor/bin/wpropel propel:migration:diff
 
 # Run migration
-php ./vendor/wakers/propel/bin/orm.php propel:migration:migrate
+php ./vendor/bin/wpropel propel:migration:migrate
 
 # Create model classes
-php ./vendor/wakers/propel/bin/orm.php propel:model:build
+php ./vendor/bin/wpropel propel:model:build
 
 # Show all allowed commands
-php ./vendor/wakers/propel/bin/orm.php
+php ./vendor/bin/wpropel
 ```
 
-### PHP
+### Create PHP code
 ```php
 $con = Propel\Runtime\Propel::getConnection();
 

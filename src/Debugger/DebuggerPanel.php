@@ -50,7 +50,7 @@ class DebuggerPanel implements IBarPanel
 
 
     /**
-     * Renders HTML code for custom tab.
+     * Tab
      * @return string
      */
     function getTab() : string
@@ -70,8 +70,9 @@ class DebuggerPanel implements IBarPanel
         return $html;
     }
 
+
     /**
-     * Renders HTML code for custom panel.
+     * Panel
      * @return string
      */
     function getPanel() : string
@@ -122,8 +123,6 @@ class DebuggerPanel implements IBarPanel
             }
 
             $sql = trim(preg_replace('/\b([A-Z\040]{2,})\b/', '<br> <strong>\\1</strong>', trim($query['sql'])), "<br>");
-
-            //var_dump($sql)
 
             $rows .= "
                 <tr>
