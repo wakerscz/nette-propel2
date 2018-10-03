@@ -1,0 +1,28 @@
+{
+    "name": "wakers/nette-propel2",
+    "description": "Propel 2 ORM integration for Nette 2.4 with Tracy debugger panel",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jiří Zapletal",
+            "email": "zapletal@wakers.cz"
+        }
+    ],
+
+    "minimum-stability" : "alpha",
+
+    "require": {
+        "symfony/console": "^4.1",
+        "propel/propel": "^2.0@alpha"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "Wakers\\Propel\\": ["src/"]
+        }
+    },
+    "bin": [
+        "bin/orm"
+    ]
+}
