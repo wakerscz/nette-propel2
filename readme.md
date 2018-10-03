@@ -90,16 +90,16 @@ Commands are same as official but with prefix **propel:** and without shortcuts.
 
 ```bash
 # Compare DB with schema (eventually create migration)
-php ./vendor/bin/wpropel propel:migration:diff
+./vendor/bin/wpropel propel:migration:diff
 
 # Run migration
-php ./vendor/bin/wpropel propel:migration:migrate
+./vendor/bin/wpropel propel:migration:migrate
 
 # Create model classes
-php ./vendor/bin/wpropel propel:model:build
+./vendor/bin/wpropel propel:model:build
 
 # Show all allowed commands
-php ./vendor/bin/wpropel
+./vendor/bin/wpropel
 ```
 
 ### Create PHP code
@@ -139,4 +139,4 @@ Please think about using Propel 2 before you start, because actually Propel 2 is
 
 If you still want to use Propel2 in Nette, this extension is the right way.
 
-**We're are welcome pull request and issues.**
+**We're welcome pull request and issues.**
