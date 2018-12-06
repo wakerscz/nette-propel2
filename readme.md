@@ -7,7 +7,7 @@ Propel 2 ORM integration for Nette 2.4 **with Tracy debugger panel**.
 
 ## Installation
 
-1. Install this **nette-extensions** via `composer require wakers/nette-propel2:v0.9`
+1. Install this **nette-extensions** via `composer require wakerscz/nette-propel2:v0.9`
 
 2. Register this extensions in your application `config.neon`
 
