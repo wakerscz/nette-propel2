@@ -1,5 +1,5 @@
 {
-    "name": "wakerscz/nette-propel2",
+    "name": "wakers/nette-propel2",
     "description": "Propel 2 ORM integration for Nette 2.4 with Tracy debugger panel",
     "homepage": "http://www.wakers.cz/cms",
     "type": "library",
