@@ -30,14 +30,42 @@ class PropelSetup
 
 
     /**
+     * Podpora pro ::getenv() v neon souborech
+     * @param $content
+     * @return string
+     */
+    protected static function replaceEnviromentVariables($content) : string
+    {
+        preg_match_all("/\:\:getenv\(\'(.*)\'\)/", $content, $result);
+
+        $findEnvs = [];
+
+        foreach ($result[1] as $envVar)
+        {
+            if(!in_array($envVar, $findEnvs))
+            {
+                $toReplace = "::getenv('{$envVar}')";
+                $replaceWith = getenv($envVar);
+                $content = str_replace($toReplace, $replaceWith, $content);
+                unset($replaceWith);
+            }
+        }
+
+        return $content;
+    }
+
+
+    /**
      * Vrací nastavení Propelu ze souboru db.local.neon
-     * @param string $path
      * @return array
      */
     public static function getAsArray() : array
     {
         $configPath = realpath(self::NEON_CONFIG_PATH);
-        $config = Neon::decode(file_get_contents('nette.safe://' . $configPath))['wakers-propel'];
+        $content = file_get_contents('nette.safe://' . $configPath);
+        $content = self::replaceEnviromentVariables($content);
+        $config = Neon::decode($content)['wakers-propel'];
+
         return $config;
     }
 
@@ -45,9 +73,7 @@ class PropelSetup
     /**
      *
      * Připojí propel k DB a nastaví výchozí připojení.
-     *
      * @param Container $container
-     * @throws \ReflectionException
      */
     public static function setup(Container $container) : void
     {
