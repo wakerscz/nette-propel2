@@ -13,6 +13,7 @@
     "minimum-stability" : "stable",
     "require": {
         "symfony/console": "^4.1",
+        "symfony/dotenv": "^4.2",
         "propel/propel": "^2.0@alpha",
         "nette/di": "^2.4",
         "tracy/tracy": "^2.5"

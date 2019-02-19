@@ -12,6 +12,12 @@
 
 if (php_sapi_name() === 'cli')
 {
+    if (file_exists(__DIR__ . '/../../../../../.env'))
+    {
+        $dotenv = new \Symfony\Component\Dotenv\Dotenv();
+        $dotenv->load(__DIR__ . '/../../../../../.env');
+    }
+
     return \Wakers\Propel\Setup\PropelSetup::getAsArray();
 }
 

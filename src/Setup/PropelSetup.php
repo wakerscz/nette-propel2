@@ -34,7 +34,7 @@ class PropelSetup
      * @param $content
      * @return string
      */
-    protected static function replaceEnviromentVariables($content) : string
+    protected static function replaceEnvironmentVariables($content) : string
     {
         preg_match_all("/\:\:getenv\(\'(.*)\'\)/", $content, $result);
 
@@ -63,7 +63,7 @@ class PropelSetup
     {
         $configPath = realpath(self::NEON_CONFIG_PATH);
         $content = file_get_contents('nette.safe://' . $configPath);
-        $content = self::replaceEnviromentVariables($content);
+        $content = self::replaceEnvironmentVariables($content);
         $config = Neon::decode($content)['wakers-propel'];
 
         return $config;
